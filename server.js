@@ -6,6 +6,10 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static('.'));
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/index.html');
+});
 
 // LanguageTool API endpoint (completely free, no authentication)
 const LANGUAGETOOL_API = 'https://api.languagetool.org/v2/check';
